@@ -37,21 +37,31 @@ import Image from './components/image'
 import logo from './img/react_logo_icon_144942.png'
 
 class App extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            helpText: "Help text",
+
+        }
+    }
   helpText = 'Help Text'
 
   render() {
     return (<div className="name">
       <Header title="Шапка сайта"/>
       <Header title="Новая шапка сайта"/>
-      <h1>{this.helpText}</h1>
-      <input placeholder={this.helpText}
+      <h1>{this.state.helpText}</h1>
+      <input placeholder={this.state.helpText}
       onClick={this.inputClick} onMouseEnter={this.mouseOver} />
-      <p>{this.helpText === "Help Text!" ? "Yes" : "No"}</p>
+      <p>{this.state.helpText === "Help Text!" ? "Yes" : "No"}</p>
       <Image image={logo} />
     </div>)
   }
 
-  inputClick() {console.log("Clicked")}
+  inputClick() {
+    this.setState({helpText: 'Changed'})
+    console.log("Clicked")
+}
   mouseOver() {console.log("Mouse Over")}
 }
 
