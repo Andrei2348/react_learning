@@ -47,10 +47,16 @@ class App extends React.Component {
     }
   helpText = 'Help Text'
 
+  // Хуки в классах
+  componentDidUpdate(prevProp){
+    if(this.state.helpText !== "Help")
+      console.log("some")
+  }
+
   render() {
     return (<div className="name">
       <Header title="Шапка сайта"/>
-      <Header title="Новая шапка сайта"/>
+      {/* <Header title="Новая шапка сайта"/> */}
       <h1>{this.state.helpText}</h1>
       <h2>{this.state.userData}</h2>
       <input placeholder={this.state.helpText}
