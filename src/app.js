@@ -41,8 +41,9 @@ class App extends React.Component {
         super(props)
         this.state = {
             helpText: "Help text",
-
+            userData: ""
         }
+        this.inputClick = this.inputClick.bind(this)
     }
   helpText = 'Help Text'
 
@@ -51,8 +52,11 @@ class App extends React.Component {
       <Header title="Шапка сайта"/>
       <Header title="Новая шапка сайта"/>
       <h1>{this.state.helpText}</h1>
+      <h2>{this.state.userData}</h2>
       <input placeholder={this.state.helpText}
-      onClick={this.inputClick} onMouseEnter={this.mouseOver} />
+              onChange={event => this.setState({userData: event.target.value})}
+              onClick={this.inputClick} 
+              onMouseEnter={this.mouseOver} />
       <p>{this.state.helpText === "Help Text!" ? "Yes" : "No"}</p>
       <Image image={logo} />
     </div>)
